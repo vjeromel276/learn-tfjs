@@ -50,7 +50,9 @@ tf.tidy(() => {
   const top_genres = top_user_features.indices.arraySync();
   // print the results
   users.map((u, i) => {
-    const rankedCategories = top_genres[i].map((v) => features[v]);
+    const rankedCategories = top_genres[i].map(
+      (v: string | number): string => features[v]
+    );
     console.log(u, rankedCategories);
   });
 });

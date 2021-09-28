@@ -3,9 +3,9 @@ import * as toxicity from "@tensorflow-models/toxicity";
 
 // minimum positive prediction confidence
 // If this isn't passed, the default is 0.85
-const threshold = 0.5;
+const threshold: number = 0.5;
 
-toxicity.load(threshold).then((model) => {
+toxicity.load(threshold, []).then((model) => {
   const sentences = ["You are a poopy head!", "I like turtles", "Shut up!"];
 
   model.classify(sentences).then((predictions) => {

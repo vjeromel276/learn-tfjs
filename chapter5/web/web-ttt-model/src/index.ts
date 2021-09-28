@@ -13,6 +13,7 @@ tf.ready().then(() => {
       const matches = tf.stack([emptyBoard, betterBlockMe, goForTheKill]);
       const result = model.predict(matches);
       // Log the results
+      //@ts-ignore
       result.reshape([3, 3, 3]).print();
     });
   });

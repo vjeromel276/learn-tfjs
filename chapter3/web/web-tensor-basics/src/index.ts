@@ -3,7 +3,11 @@ import * as tf from "@tensorflow/tfjs";
 // Start at zero tensors
 console.log("start", tf.memory().numTensors);
 
-let keeper, chaser, seeker, beater;
+let keeper: tf.Tensor<tf.Rank>,
+  chaser: tf.Tensor<tf.Rank>,
+  seeker: tf.Tensor<tf.Rank>,
+  beater: tf.Tensor<tf.Rank>;
+
 // Now we'll create tensors inside a tidy
 tf.tidy(() => {
   keeper = tf.tensor([1, 2, 3]);

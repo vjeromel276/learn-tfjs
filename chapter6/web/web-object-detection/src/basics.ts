@@ -8,7 +8,7 @@ tf.ready().then(() => {
   tf.tidy(() => {
     tf.loadGraphModel(modelPath, { fromTFHub: true }).then((model) => {
       const mysteryImage = document.getElementById("mystery");
-      const myTensor = tf.browser.fromPixels(mysteryImage);
+      const myTensor = tf.browser.fromPixels(mysteryImage as HTMLImageElement);
       // SSD Mobilenet
       const readyfied = tf.expandDims(myTensor, 0);
 
