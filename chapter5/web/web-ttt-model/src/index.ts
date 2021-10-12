@@ -5,15 +5,23 @@ tf.ready().then(() => {
   tf.tidy(() => {
     tf.loadLayersModel(modelPath).then((model) => {
       // Three board states
-      const emptyBoard = tf.zeros([9]);
-      const betterBlockMe = tf.tensor([-1, 0, 0, 1, 1, -1, 0, 0, -1]);
-      const goForTheKill = tf.tensor([1, 0, 1, 0, -1, -1, -1, 0, 1]);
+      const emptyBoard = tf.zeros<tf.Rank.R1>([9]);
+      const betterBlockMe = tf.tensor<tf.Rank.R1>([
+        -1, 0, 0, 1, 1, -1, 0, 0, -1,
+      ]);
+      const goForTheKill = tf.tensor<tf.Rank.R1>([
+        1, 0, 1, 0, -1, -1, -1, 0, 1,
+      ]);
 
       // Stack states into a shape [3, 9]
-      const matches = tf.stack([emptyBoard, betterBlockMe, goForTheKill]);
-      const result = model.predict(matches);
+      const matches = tf.stack<tf.Tensor<tf.Rank.R1>>([
+        emptyBoard,
+        betterBlockMe,
+        goForTheKill,
+      ]);
+      const result = model.predict(matches) as tf.Tensor<tf.Rank.R3>;
       // Log the results
-      //@ts-ignore
+
       result.reshape([3, 3, 3]).print();
     });
   });

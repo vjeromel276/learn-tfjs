@@ -1,10 +1,6 @@
 import * as tf from "@tensorflow/tfjs";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import {
-  Tensor,
-  Tensor3D,
-} from "../../../../chapter5/web/web-ttt-model/node_modules/@tensorflow/tfjs/dist/index.js";
 import { CLASSES } from "./labels.js";
 
 async function performDetections() {

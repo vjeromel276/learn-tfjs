@@ -8,7 +8,7 @@ async function performDetections() {
     "https://tfhub.dev/tensorflow/tfjs-model/ssd_mobilenet_v2/1/default/1";
 
   const model = await tf.loadGraphModel(modelPath, { fromTFHub: true });
-  const mysteryImage = document.getElementById("mystery");
+  const mysteryImage = document.getElementById("mystery") as HTMLImageElement;
   const myTensor = tf.browser.fromPixels(mysteryImage);
   // SSD Mobilenet single batch
   const readyfied = tf.expandDims(myTensor, 0);
@@ -16,7 +16,7 @@ async function performDetections() {
   const boxes = await results[1].squeeze().array();
 
   // Prep Canvas
-  const detection = document.getElementById("detection");
+  const detection = document.getElementById("detection") as HTMLCanvasElement;
   const ctx = detection.getContext("2d");
   const imgWidth = mysteryImage.width;
   const imgHeight = mysteryImage.height;

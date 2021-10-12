@@ -21,7 +21,9 @@ async function setupWebcam(videoRef) {
     return new Promise((resolve, _) => {
       videoRef.onloadedmetadata = () => {
         // Prep Canvas
-        const detection = document.getElementById("detection");
+        const detection = document.getElementById(
+          "detection"
+        ) as HTMLCanvasElement;
         const ctx = detection.getContext("2d");
         const imgWidth = videoRef.clientWidth;
         const imgHeight = videoRef.clientHeight;
