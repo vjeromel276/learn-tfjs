@@ -4,11 +4,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
   </head>
   <body>
-    <h1>Locate Pet Faces - TensorFlow.js</h1>
-    <div style="position: relative; height: 80vh">
-      <img id="pet" src="/dog1.jpg" height="100%" />
-      <canvas id="detection" style="position: absolute; left: 0"></canvas>
-    </div>
+      <h1>Locate Pet Faces - TensorFlow.js</h1>
+      <div style="position: relative;">
+        <!-- NOTE: styles were modified post-print to fix issues with rendering at small viewports widths -->
+        <img id="pet" src="/dog1.jpg" width="100%" />
+        <canvas id="detection" style="position: absolute; left: 0; "></canvas>
+      </div>
 
     <script>
       tf.ready().then(() => {
@@ -46,5 +47,6 @@
         })
       })
     </script>
+
   </body>
 </html>
