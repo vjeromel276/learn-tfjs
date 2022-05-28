@@ -71,7 +71,7 @@
         document.getElementById('starfleet').style.opacity = predictions[2]
       }
 
-      async function makePrediction(canvas, model) {
+      async function makePrediction(canvas) {
         const drawTensor = tf.browser.fromPixels(canvas, 1)
         const resize = tf.image.resizeNearestNeighbor(
           drawTensor,
@@ -116,7 +116,7 @@
         }
         function drawEnd(event) {
           isIdle = true
-          makePrediction(canvas, model)
+          makePrediction(canvas)
         }
         function touchStart(event) {
           drawStart(event.touches[0])
