@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Showing what an NPM version would look like",
   "main": "index.html",
+  "type": "module",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "3.0.0"
+   
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
