@@ -1,6 +1,19 @@
-import * as tf from "@tensorflow/tfjs";
+import toxicity from '@tensorflow-models/toxicity';
+// minimum positive prediction confidence
+// If this isn't passed, the default is 0.85
+const threshold = 0.5;
 
-console.log(tf.version.tfjs);
+// Load the model 1
+toxicity.load( threshold ).then( ( model ) => {
+	const sentences = [
+		"You are a poopy head!",
+		"I like turtles",
+		"Shut up!"
+	];
 
-const app = document.getElementById("app");
-app.innerHTML = `<h1>TensorFlow.js version: ${tf.version.tfjs}</h1>`;
+	// Ask the model to classify inputs 2
+	model.classify( sentences ).then( ( predictions ) => {
+		// semi-pretty-print results
+		console.log( JSON.stringify( predictions, null, 2 ) ); 3;
+	} );
+} );
